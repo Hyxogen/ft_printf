@@ -2,10 +2,14 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-int ft_vfprintf(FILE *stream, const char *format, va_list arg_list)
-{
-
-}
+/*
+ * Altijd size precision etc. doorsturen?
+ * Werkt dat voor precision?
+ *
+ * Eerst converten met type en dan aanpassen met de flags?
+ * -Werkt niet even goed voor float (wel mogelijk)
+ * -Werkt niet voor niet nul terminated strings
+ */
 
 int ft_printf(const char *format, ...)
 {

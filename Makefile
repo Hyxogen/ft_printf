@@ -3,19 +3,25 @@ NAME		:= libftprintf.a
 SRC_DIR		:= ./src
 INC_DIR		:= ./include
 INT_DIR		:= ./obj
+LIBFT_DIR	:= ./Dependencies/Libft
 DEPEND		:= $(INC_DIR)/ft_printf.h
 
-SRC_FILES	:= $(SRC_DIR)/ft_printf.c
+SRC_FILES	:= $(SRC_DIR)/ft_printf.c $(SRC_DIR)/format_info.c $(SRC_DIR)/ft_printf_utils.c $(SRC_DIR)/debug_utils.c \
+				$(SRC_DIR)/format_info_utils.c
 OBJ_FILES	:= $(SRC_FILES:$(SRC_DIR)/%.c=$(INT_DIR)/%.o)
 
 CC			:= cc
-CFLAGS		:= -Wall -Wextra -Werror -I $(INC_DIR)
+CFLAGS		:= -Wall -Wextra -Werror -I $(INC_DIR) -fsanitize=address
 
 all: distribution
 
 bonus:
 
-$(NAME): $(OBJ_FILES)
+test: debug
+	cc -fsanitize=address $(NAME) $(LIBFT_DIR)/libft.a src/main.c
+	./a.out
+
+$(NAME): $(NAME)($(notdir $(OBJ_FILES)))
 
 $(NAME)(%.o): $(INT_DIR)/%.o
 	ar rcs $(NAME) $<
@@ -42,6 +48,7 @@ release: $(NAME)
 
 distribution: CFLAGS += -Ofast -DDISTRIBUTION
 distribution: TARGET := distribution
-debug: $(NAME)
+distribution: $(NAME)
 
 .PHONY: all bonus clean fclean re debug release distribution
+.PRECIOUS: $(OBJ_FILES)

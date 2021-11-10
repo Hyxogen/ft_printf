@@ -1,7 +1,9 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-int ft_printf();
+#define FORMAT_SPECIFIER '%'
+
+int ft_printf(const char *format, ...);
 int ft_vprintf();
 int ft_fprintf();
 int ft_vfprintf();
