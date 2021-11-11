@@ -5,6 +5,12 @@
 #include "format_info_utils.h"
 #include "libft.h"
 
+const static t_string_flag_pair	g_StringFlags[] = {
+		{"c", TYPE_CHAR, 1},
+		{"s", TYPE_STRING, 1},
+		{0, 0, 0}
+};
+
 const t_string_flag_pair
 	*get_string_flag(const char *str)
 {

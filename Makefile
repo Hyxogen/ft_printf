@@ -6,8 +6,10 @@ INT_DIR		:= ./obj
 LIBFT_DIR	:= ./Dependencies/Libft
 DEPEND		:= $(INC_DIR)/ft_printf.h
 
+VPATH		:= $(SRC_DIR) $(SRC_DIR)/format
+
 SRC_FILES	:= $(SRC_DIR)/ft_printf.c $(SRC_DIR)/format_info.c $(SRC_DIR)/ft_printf_utils.c $(SRC_DIR)/debug_utils.c \
-				$(SRC_DIR)/format_info_utils.c
+				$(SRC_DIR)/format_info_utils.c $(SRC_DIR)/format/format_char.c $(SRC_DIR)/dispatcher.c
 OBJ_FILES	:= $(SRC_FILES:$(SRC_DIR)/%.c=$(INT_DIR)/%.o)
 
 CC			:= cc
@@ -26,7 +28,7 @@ $(NAME): $(NAME)($(notdir $(OBJ_FILES)))
 $(NAME)(%.o): $(INT_DIR)/%.o
 	ar rcs $(NAME) $<
 
-$(INT_DIR)/%.o: $(SRC_DIR)/%.c
+$(INT_DIR)/%.o: %.c
 	@mkdir -p $(INT_DIR)
 	$(CC) $(CFLAGS) -o $@ -c $<
 

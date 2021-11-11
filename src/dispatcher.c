@@ -27,7 +27,7 @@ const t_dispatch_pair
 }
 
 uint32_t
-	get_flags(t_format_info *formatInfo)
+	get_mask(t_format_info *formatInfo)
 {
 	return (formatInfo->m_Type | ((uint32_t) formatInfo->m_Size));
 }
@@ -35,13 +35,13 @@ uint32_t
 size_t
 	dispatch(FILE *stream, t_format_info *formatInfo, va_list current)
 {
-	t_dispatch_pair *pair;
+	const t_dispatch_pair *pair;
 
-	pair = get_pair(get_flags(formatInfo));
+	pair = get_pair(get_mask(formatInfo));
 	if (!pair)
 	{
 		printf("Not implemented!\n");
 		return (0);
 	}
-	pair->m_Function(stream, formatInfo, NULL);
+	return (pair->m_Function(stream, formatInfo, current));
 }

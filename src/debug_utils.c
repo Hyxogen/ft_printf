@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "format_info.h"
+#include "debug_utils.h"
 
 void
 	print_format_info(t_format_info *formatInfo)

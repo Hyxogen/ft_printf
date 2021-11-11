@@ -45,14 +45,14 @@
 
 //%[flags][width][.precision][size]type
 typedef struct s_format_info {
-	char	m_Flags;
-	t_bool	m_FillZeroes;
-	t_bool	m_VariableWidth;
-	int		m_Width;
-	t_bool	m_VariablePrecision;
-	int		m_Precision;
-	char	m_Size;
-	int 	m_Type;
+	unsigned char	m_Flags;
+	t_bool			m_FillZeroes;
+	t_bool			m_VariableWidth;
+	int				m_Width;
+	t_bool			m_VariablePrecision;
+	int				m_Precision;
+	char			m_Size;
+	int 			m_Type;
 }	t_format_info;
 
 typedef struct s_string_flag_pair {
@@ -61,13 +61,7 @@ typedef struct s_string_flag_pair {
 	size_t 		m_StrLen;
 }	t_string_flag_pair;
 
-const static t_string_flag_pair	g_StringFlags[] = {
-		{"c", TYPE_CHAR, 1},
-		{"s", TYPE_STRING, 1},
-		{0, 0, 0}
-};
-
 size_t	get_specifiers_count(const char *format);
-void 	get_format_info(const char *format, t_format_info *format_info);
+int 	get_format_info(const char *format, t_format_info *format_info, va_list argList);
 
 #endif //FORMAT_INFO_H

@@ -27,7 +27,7 @@ int
 }
 
 int
-	get_width(const char *format, t_format_info *formatInfo)
+	get_width(const char *format, t_format_info *formatInfo, va_list argList)
 {
 	int	ret;
 
@@ -45,8 +45,8 @@ int
 	else
 	{
 		formatInfo->m_VariableWidth = TRUE;
-		ret++;
-		format++;
+		formatInfo->m_Width = va_arg(argList, int);
+		return (ret + 1);
 	}
 	while (ft_isdigit(*format))
 	{
@@ -57,16 +57,18 @@ int
 }
 
 int
-	get_preciscion(const char *format, t_format_info *formatInfo)
+	get_preciscion(const char *format, t_format_info *formatInfo, va_list argList)
 {
 	int	ret;
 
+	formatInfo->m_Precision = -1;
 	if (*format != '.')
 		return (0);
 	ret = 1;
 	format++;
 	if (*format == '*'){
 		formatInfo->m_VariablePrecision = TRUE;
+		formatInfo->m_Precision = va_arg(argList, int);
 		return (ret + 1);
 	}
 	formatInfo->m_Precision = ft_atoi(format);
@@ -97,19 +99,23 @@ int
 	pair = get_string_flag(format);
 	if (!pair)
 		return (ret);
-	printf("Type is: %s flag:%d\n", pair->m_Str, pair->m_Flag);
+//	printf("Type is: %s flag:%d\n", pair->m_Str, pair->m_Flag);
 	formatInfo->m_Type = pair->m_Flag;
 	ret += pair->m_StrLen;
 	return (ret);
 }
 
 //TODO check if multiple of the same flags are equal it still works
-void
-	get_format_info(const char *format, t_format_info *formatInfo)
+int
+	get_format_info(const char *format, t_format_info *formatInfo, va_list argList)
 {
+	int ret;
+
+	ret = 0;
 	ft_memset(formatInfo, 0, sizeof(t_format_info));
-	format += get_flags(format, formatInfo);
-	format += get_width(format, formatInfo);
-	format += get_preciscion(format, formatInfo);
-	get_size_type(format, formatInfo);
+	ret += get_flags(format, formatInfo);
+	ret += get_width(format + ret, formatInfo, argList);
+	ret += get_preciscion(format + ret, formatInfo, argList);
+	ret += get_size_type(format + ret, formatInfo);
+	return (ret);
 }
