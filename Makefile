@@ -9,7 +9,8 @@ DEPEND		:= $(INC_DIR)/ft_printf.h
 VPATH		:= $(SRC_DIR) $(SRC_DIR)/format
 
 SRC_FILES	:= $(SRC_DIR)/ft_printf.c $(SRC_DIR)/format_info.c $(SRC_DIR)/ft_printf_utils.c $(SRC_DIR)/debug_utils.c \
-				$(SRC_DIR)/format_info_utils.c $(SRC_DIR)/format/format_char.c $(SRC_DIR)/dispatcher.c
+				$(SRC_DIR)/format_info_utils.c $(SRC_DIR)/format/format_char.c $(SRC_DIR)/dispatcher.c \
+				$(SRC_DIR)/format/format_specifier.c
 OBJ_FILES	:= $(SRC_FILES:$(SRC_DIR)/%.c=$(INT_DIR)/%.o)
 
 CC			:= cc

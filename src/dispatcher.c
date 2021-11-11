@@ -5,9 +5,11 @@
 #include "dispatcher.h"
 
 #include "format/format_char.h"
+#include "format/format_specifier.h"
 
 const static t_dispatch_pair g_Pairs[] = {
 		{TYPE_CHAR, &print_char},
+		{TYPE_SPECIFIER, &print_specifier},
 		{0, 0}
 };
 

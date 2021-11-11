@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include "libft.h"
 #include "format_info_utils.h"
+#include "ft_printf.h"
 
 int
 	get_flags(const char *format, t_format_info *formatInfo)
@@ -99,7 +100,6 @@ int
 	pair = get_string_flag(format);
 	if (!pair)
 		return (ret);
-//	printf("Type is: %s flag:%d\n", pair->m_Str, pair->m_Flag);
 	formatInfo->m_Type = pair->m_Flag;
 	ret += pair->m_StrLen;
 	return (ret);

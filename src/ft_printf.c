@@ -31,25 +31,18 @@ int
 	ft_vfprintf(FILE *stream, const char *format, va_list args)
 {
 	char			*specifier;
-	const char 		*searchStart;
 	size_t			formatLen;
 	t_format_info	formatInfo;
 	int 			ret;
 	int 			tmp;
 
 	formatLen = ft_strlen(format);
-	searchStart = format;
 	ret = 0;
 	while (1)
 	{
-		specifier = ft_memchr(searchStart, FORMAT_SPECIFIER, formatLen);
+		specifier = ft_memchr(format, FORMAT_SPECIFIER, formatLen);
 		if (!specifier)
 			break ;
-		if (*(specifier + 1) == FORMAT_SPECIFIER)
-		{
-			searchStart = specifier + 2;
-			continue ;
-		}
 		tmp = write_strn(stream, format, specifier - format);
 		format += tmp;
 		formatLen -= tmp;
@@ -59,8 +52,6 @@ int
 		formatLen -= tmp;
 		tmp  = dispatch(stream, &formatInfo, args);
 		ret += tmp;
-//		print_format_info(&formatInfo);
-		break;
 	}
 	ret += write_strn(stream, format, formatLen);
 	return (ret);

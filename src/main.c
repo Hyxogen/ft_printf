@@ -17,5 +17,5 @@ int main(void)
 //	test("-0#+ *.*c", &formatInfo, 999, 42);
 ////	get_format_info("-0#+ *.*c", &formatInfo);
 //	print_format_info(&formatInfo);
-	ft_printf("Hallo, dit is een %c\n", 'c');
+	ft_printf("Hallo, dit is %% een %c\n", 'c');
 }
