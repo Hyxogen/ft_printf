@@ -3,7 +3,6 @@
 #include <stdarg.h>
 #include "libft.h"
 #include "format_info.h"
-#include "debug_utils.h"
 #include "dispatcher.h"
 
 /*
@@ -57,7 +56,7 @@ int
 	return (ret);
 }
 
-
+/*TODO create internal stream writing system*/
 int
 	ft_printf(const char *format, ...)
 {
@@ -68,4 +67,18 @@ int
 	ret = ft_vfprintf(stdout, format, arg_list);
 	va_end(arg_list);
 	return (ret);
+}
+
+int ft_sprintf(char *buffer, const char *format, ...) {
+	int		ret;
+	va_list	arg_list;
+
+	va_start(arg_list, format);
+	ret = ft_vsprintf(buffer, format, arg_list);
+	va_end(arg_list);
+	return (ret);
+}
+
+int ft_vsprintf(char *buffer, const char *format, va_list list) {
+
 }

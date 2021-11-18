@@ -1,7 +1,3 @@
-//
-// Created by Daan Meijer on 11/10/21.
-//
-
 #ifndef FORMAT_INFO_UTILS_H
 #define FORMAT_INFO_UTILS_H
 
@@ -10,4 +6,4 @@
 
 const t_string_flag_pair	*get_string_flag(const char *str);
 
-#endif //FORMAT_INFO_UTILS_H
+#endif

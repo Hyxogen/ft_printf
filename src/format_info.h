@@ -26,7 +26,7 @@
 # define SIZE_PTRDIFF 0b01000000
 # define SIZE_LONGDOUBLE 0b10000000
 
-//TODO een define maken voor low and upper case voor inder defines?
+/*TODO een define maken voor low and upper case voor inder defines?*/
 # define TYPE_CHAR			0b000000000000000000000000
 # define TYPE_STRING		0b000000000000000100000000
 # define TYPE_SINT			0b000000000000001000000000
@@ -45,7 +45,7 @@
 # define TYPE_SPECIFIER		0b010000000000000000000000
 # define TYPE_INVALID		0b100000000000000000000000
 
-//%[flags][width][.precision][size]type
+/*%[flags][width][.precision][size]type*/
 typedef struct s_format_info {
 	unsigned char	m_Flags;
 	t_bool			m_FillZeroes;
@@ -66,4 +66,4 @@ typedef struct s_string_flag_pair {
 size_t	get_specifiers_count(const char *format);
 int 	get_format_info(const char *format, t_format_info *format_info, va_list argList);
 
-#endif //FORMAT_INFO_H
+#endif

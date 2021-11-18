@@ -1,7 +1,3 @@
-//
-// Created by Daan Meijer on 11/10/21.
-//
-
 #ifndef DISPATCHER_H
 #define DISPATCHER_H
 
@@ -21,4 +17,4 @@ uint32_t get_mask(t_format_info *formatInfo);
 
 size_t	dispatch(FILE* stream, t_format_info *formatInfo, va_list current);
 
-#endif //DISPATCHER_H
+#endif

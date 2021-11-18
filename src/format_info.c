@@ -1,7 +1,3 @@
-//
-// Created by Daan Meijer on 11/10/21.
-//
-
 #include "format_info.h"
 #include <stdio.h>
 #include "libft.h"
@@ -105,7 +101,7 @@ int
 	return (ret);
 }
 
-//TODO check if multiple of the same flags are equal it still works
+/*TODO check if multiple of the same flags are equal it still works*/
 int
 	get_format_info(const char *format, t_format_info *formatInfo, va_list argList)
 {

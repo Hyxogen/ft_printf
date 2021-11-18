@@ -1,7 +1,3 @@
-//
-// Created by Daan Meijer on 11/11/21.
-//
-
 #include "format_specifier.h"
 #include "ft_printf.h"
 

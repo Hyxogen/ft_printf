@@ -6,4 +6,4 @@
 
 typedef int t_bool;
 
-#endif //BOOLEAN_H
+#endif
