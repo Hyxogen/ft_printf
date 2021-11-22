@@ -33,7 +33,7 @@ uint32_t
 }
 
 size_t
-	dispatch(FILE *stream, t_format_info *formatInfo, va_list current)
+	dispatch(int fd, t_format_info *formatInfo, va_list current)
 {
 	const t_dispatch_pair *pair;
 
@@ -43,5 +43,5 @@ size_t
 		printf("Not implemented");
 		return (0);
 	}
-	return (pair->m_Function(stream, formatInfo, current));
+	return (pair->m_Function(fd, formatInfo, current));
 }

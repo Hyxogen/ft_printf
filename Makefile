@@ -92,21 +92,29 @@ GENERATED += $(OBJDIR)/dispatcher.o
 GENERATED += $(OBJDIR)/format_char.o
 GENERATED += $(OBJDIR)/format_info.o
 GENERATED += $(OBJDIR)/format_info_utils.o
+GENERATED += $(OBJDIR)/format_sint.o
 GENERATED += $(OBJDIR)/format_specifier.o
 GENERATED += $(OBJDIR)/format_string.o
 GENERATED += $(OBJDIR)/ft_printf.o
 GENERATED += $(OBJDIR)/ft_printf_utils.o
 GENERATED += $(OBJDIR)/main.o
+GENERATED += $(OBJDIR)/putchr.o
+GENERATED += $(OBJDIR)/putnumber.o
+GENERATED += $(OBJDIR)/putstr.o
 OBJECTS += $(OBJDIR)/debug_utils.o
 OBJECTS += $(OBJDIR)/dispatcher.o
 OBJECTS += $(OBJDIR)/format_char.o
 OBJECTS += $(OBJDIR)/format_info.o
 OBJECTS += $(OBJDIR)/format_info_utils.o
+OBJECTS += $(OBJDIR)/format_sint.o
 OBJECTS += $(OBJDIR)/format_specifier.o
 OBJECTS += $(OBJDIR)/format_string.o
 OBJECTS += $(OBJDIR)/ft_printf.o
 OBJECTS += $(OBJDIR)/ft_printf_utils.o
 OBJECTS += $(OBJDIR)/main.o
+OBJECTS += $(OBJDIR)/putchr.o
+OBJECTS += $(OBJDIR)/putnumber.o
+OBJECTS += $(OBJDIR)/putstr.o
 
 # Rules
 # #############################################
@@ -179,6 +187,9 @@ $(OBJDIR)/dispatcher.o: src/dispatcher.c
 $(OBJDIR)/format_char.o: src/format/format_char.c
 	@echo $(notdir $<)
 	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/format_sint.o: src/format/format_sint.c
+	@echo $(notdir $<)
+	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/format_specifier.o: src/format/format_specifier.c
 	@echo $(notdir $<)
 	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
@@ -198,6 +209,15 @@ $(OBJDIR)/ft_printf_utils.o: src/ft_printf_utils.c
 	@echo $(notdir $<)
 	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/main.o: src/main.c
+	@echo $(notdir $<)
+	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/putchr.o: src/utils/putchr.c
+	@echo $(notdir $<)
+	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/putnumber.o: src/utils/putnumber.c
+	@echo $(notdir $<)
+	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/putstr.o: src/utils/putstr.c
 	@echo $(notdir $<)
 	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 

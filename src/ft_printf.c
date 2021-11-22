@@ -4,6 +4,7 @@
 #include "libft.h"
 #include "format_info.h"
 #include "dispatcher.h"
+#include "utils/utils.h"
 
 /*
  * Altijd size precision etc. doorsturen?
@@ -20,14 +21,9 @@
  * @param string
  * @return
  */
-int
-	write_strn(FILE *stream, const char *string, size_t n)
-{
-	return (fwrite(string, sizeof(char), n, stream));
-}
 
 int
-	ft_vfprintf(FILE *stream, const char *format, va_list args)
+	ft_vprintf(int fd, const char *format, va_list args)
 {
 	char			*specifier;
 	size_t			formatLen;
@@ -42,17 +38,19 @@ int
 		specifier = ft_memchr(format, FORMAT_SPECIFIER, formatLen);
 		if (!specifier)
 			break ;
-		tmp = write_strn(stream, format, specifier - format);
+		tmp = put_strn_fd(fd, format, specifier - format);
+//		tmp = write_strn(stream, format, specifier - format);
 		format += tmp;
 		formatLen -= tmp;
 		ret += tmp;
 		tmp = get_format_info(specifier + 1, &formatInfo, args);
 		format += tmp;
 		formatLen -= tmp;
-		tmp  = dispatch(stream, &formatInfo, args);
+		tmp  = dispatch(fd, &formatInfo, args);
 		ret += tmp;
 	}
-	ret += write_strn(stream, format, formatLen);
+//	ret += write_strn(stream, format, formatLen);
+	ret += put_strn_fd(fd, format, formatLen);
 	return (ret);
 }
 
@@ -64,21 +62,7 @@ int
 	va_list	arg_list;
 
 	va_start(arg_list, format);
-	ret = ft_vfprintf(stdout, format, arg_list);
+	ret = ft_vprintf(1, format, arg_list);
 	va_end(arg_list);
 	return (ret);
-}
-
-int ft_sprintf(char *buffer, const char *format, ...) {
-	int		ret;
-	va_list	arg_list;
-
-	va_start(arg_list, format);
-	ret = ft_vsprintf(buffer, format, arg_list);
-	va_end(arg_list);
-	return (ret);
-}
-
-int ft_vsprintf(char *buffer, const char *format, va_list list) {
-
 }
