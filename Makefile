@@ -28,7 +28,7 @@ ifeq ($(origin AR), default)
   AR = ar
 endif
 DEFINES +=
-INCLUDES += -Iinclude
+INCLUDES += -Iinclude -IDependencies/Libft
 FORCE_INCLUDE +=
 ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -Wall -Wextra -std=c89
@@ -93,6 +93,7 @@ GENERATED += $(OBJDIR)/format_char.o
 GENERATED += $(OBJDIR)/format_info.o
 GENERATED += $(OBJDIR)/format_info_utils.o
 GENERATED += $(OBJDIR)/format_specifier.o
+GENERATED += $(OBJDIR)/format_string.o
 GENERATED += $(OBJDIR)/ft_printf.o
 GENERATED += $(OBJDIR)/ft_printf_utils.o
 GENERATED += $(OBJDIR)/main.o
@@ -102,6 +103,7 @@ OBJECTS += $(OBJDIR)/format_char.o
 OBJECTS += $(OBJDIR)/format_info.o
 OBJECTS += $(OBJDIR)/format_info_utils.o
 OBJECTS += $(OBJDIR)/format_specifier.o
+OBJECTS += $(OBJDIR)/format_string.o
 OBJECTS += $(OBJDIR)/ft_printf.o
 OBJECTS += $(OBJDIR)/ft_printf_utils.o
 OBJECTS += $(OBJDIR)/main.o
@@ -178,6 +180,9 @@ $(OBJDIR)/format_char.o: src/format/format_char.c
 	@echo $(notdir $<)
 	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/format_specifier.o: src/format/format_specifier.c
+	@echo $(notdir $<)
+	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/format_string.o: src/format/format_string.c
 	@echo $(notdir $<)
 	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/format_info.o: src/format_info.c
