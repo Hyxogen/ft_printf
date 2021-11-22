@@ -1,8 +1,6 @@
 #include "dispatcher.h"
 
-#include "format/format_char.h"
-#include "format/format_specifier.h"
-#include "format/format_string.h"
+#include "format/formats.h"
 
 const static t_dispatch_pair g_Pairs[] = {
 		{TYPE_CHAR, &print_char},

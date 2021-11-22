@@ -1,6 +1,6 @@
 #include <stdarg.h>
 #include "../../Dependencies/Libft/libft.h"
-#include "format_string.h"
+#include "formats.h"
 #include "../utils/utils.h"
 
 size_t	print_string(int fd, t_format_info *formatInfo, va_list current)
