@@ -5,4 +5,5 @@ size_t
 {
 	(void) fd;
 	(void) number;
+	return (0);
 }
