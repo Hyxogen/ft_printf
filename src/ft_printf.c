@@ -43,10 +43,10 @@ int
 		format += tmp;
 		formatLen -= tmp;
 		ret += tmp;
-		tmp = get_format_info(specifier + 1, &formatInfo, args);
+		tmp = get_format_info(specifier + 1, &formatInfo, &args);
 		format += tmp;
 		formatLen -= tmp;
-		tmp  = dispatch(fd, &formatInfo, args);
+		tmp  = dispatch(fd, &formatInfo, &args);
 		ret += tmp;
 	}
 //	ret += write_strn(stream, format, formatLen);

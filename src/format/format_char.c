@@ -2,7 +2,7 @@
 #include "../utils/utils.h"
 
 size_t
-	print_char(int fd, t_format_info *formatInfo, va_list current)
+	print_char(int fd, t_format_info *formatInfo, va_list *current)
 {
 	int	chr;
 	int ret;
@@ -15,7 +15,7 @@ size_t
 		ret += put_chr_fd(fd, ' ');
 		width--;
 	}
-	chr = va_arg(current, int);
+	chr = va_arg(*current, int);
 	ret += put_chr_fd(fd, chr);
 	while ((width > 1) && ((formatInfo->m_Flags & FLAG_MASK_MINUS) == FLAG_MASK_MINUS))
 	{

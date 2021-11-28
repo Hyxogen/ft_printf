@@ -64,6 +64,6 @@ typedef struct s_string_flag_pair {
 }	t_string_flag_pair;
 
 size_t	get_specifiers_count(const char *format);
-int 	get_format_info(const char *format, t_format_info *format_info, va_list argList);
+int 	get_format_info(const char *format, t_format_info *format_info, va_list *argList);
 
 #endif

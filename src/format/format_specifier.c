@@ -3,7 +3,7 @@
 #include "../utils/utils.h"
 
 size_t
-	print_specifier(int fd, t_format_info *formatInfo, va_list current)
+	print_specifier(int fd, t_format_info *formatInfo, va_list *current)
 {
 	(void)formatInfo;
 	(void)current;

@@ -24,7 +24,7 @@ int
 }
 
 int
-	get_width(const char *format, t_format_info *formatInfo, va_list argList)
+	get_width(const char *format, t_format_info *formatInfo, va_list *argList)
 {
 	int	ret;
 
@@ -42,7 +42,7 @@ int
 	else
 	{
 		formatInfo->m_VariableWidth = TRUE;
-		formatInfo->m_Width = va_arg(argList, int);
+		formatInfo->m_Width = va_arg(*argList, int);
 		return (ret + 1);
 	}
 	while (ft_isdigit(*format))
@@ -54,7 +54,7 @@ int
 }
 
 int
-	get_preciscion(const char *format, t_format_info *formatInfo, va_list argList)
+	get_preciscion(const char *format, t_format_info *formatInfo, va_list *argList)
 {
 	int	ret;
 
@@ -65,7 +65,7 @@ int
 	format++;
 	if (*format == '*'){
 		formatInfo->m_VariablePrecision = TRUE;
-		formatInfo->m_Precision = va_arg(argList, int);
+		formatInfo->m_Precision = va_arg(*argList, int);
 		return (ret + 1);
 	}
 	formatInfo->m_Precision = ft_atoi(format);
@@ -103,7 +103,7 @@ int
 
 /*TODO check if multiple of the same flags are equal it still works*/
 int
-	get_format_info(const char *format, t_format_info *formatInfo, va_list argList)
+	get_format_info(const char *format, t_format_info *formatInfo, va_list *argList)
 {
 	int ret;
 

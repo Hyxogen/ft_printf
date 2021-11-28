@@ -31,7 +31,7 @@ uint32_t
 }
 
 size_t
-	dispatch(int fd, t_format_info *formatInfo, va_list current)
+	dispatch(int fd, t_format_info *formatInfo, va_list *current)
 {
 	const t_dispatch_pair *pair;
 
