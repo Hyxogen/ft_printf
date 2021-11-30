@@ -23,7 +23,7 @@
  */
 
 int
-	ft_vprintf(int fd, const char *format, va_list args)
+	ft_vprintf(int fd, const char *format, va_list *args)
 {
 	char			*specifier;
 	size_t			formatLen;
@@ -43,10 +43,10 @@ int
 		format += tmp;
 		formatLen -= tmp;
 		ret += tmp;
-		tmp = get_format_info(specifier + 1, &formatInfo, &args);
+		tmp = get_format_info(specifier + 1, &formatInfo, args);
 		format += tmp;
 		formatLen -= tmp;
-		tmp  = dispatch(fd, &formatInfo, &args);
+		tmp  = dispatch(fd, &formatInfo, args);
 		ret += tmp;
 	}
 //	ret += write_strn(stream, format, formatLen);
@@ -62,7 +62,7 @@ int
 	va_list	arg_list;
 
 	va_start(arg_list, format);
-	ret = ft_vprintf(1, format, arg_list);
+	ret = ft_vprintf(1, format, &arg_list);
 	va_end(arg_list);
 	return (ret);
 }

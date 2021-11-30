@@ -6,6 +6,7 @@ const static t_dispatch_pair g_Pairs[] = {
 		{TYPE_CHAR, &print_char},
 		{TYPE_SPECIFIER, &print_specifier},
 		{TYPE_STRING, &print_string},
+		{TYPE_SINT, &print_sint},
 		{0, 0}
 };
 
@@ -37,9 +38,6 @@ size_t
 
 	pair = get_pair(get_mask(formatInfo));
 	if (!pair)
-	{
-		printf("Not implemented");
 		return (0);
-	}
 	return (pair->m_Function(fd, formatInfo, current));
 }

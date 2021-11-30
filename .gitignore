@@ -508,3 +508,5 @@ premake5.lua
 printfTester/
 *.out
 *.a
+err
+.vscode

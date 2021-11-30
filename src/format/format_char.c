@@ -16,7 +16,7 @@ size_t
 		width--;
 	}
 	chr = va_arg(*current, int);
-	ret += put_chr_fd(fd, chr);
+	ret += put_chr_fd(fd, (char) chr);
 	while ((width > 1) && ((formatInfo->m_Flags & FLAG_MASK_MINUS) == FLAG_MASK_MINUS))
 	{
 		ret += put_chr_fd(fd, ' ');

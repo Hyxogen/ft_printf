@@ -12,13 +12,14 @@ VPATH		:= $(SRC_DIR) $(SRC_DIR)/format $(SRC_DIR)/utils
 SRC_FILES	:= $(SRC_DIR)/ft_printf.c $(SRC_DIR)/format_info.c $(SRC_DIR)/ft_printf_utils.c $(SRC_DIR)/debug_utils.c \
 				$(SRC_DIR)/format_info_utils.c $(SRC_DIR)/format/format_char.c $(SRC_DIR)/dispatcher.c \
 				$(SRC_DIR)/format/format_specifier.c $(SRC_DIR)/format/format_string.c $(SRC_DIR)/utils/putchr.c \
-				$(SRC_DIR)/utils/putnumber.c $(SRC_DIR)/utils/putstr.c
+				$(SRC_DIR)/utils/putnumber.c $(SRC_DIR)/utils/putstr.c $(SRC_DIR)/format/format_sint.c
 OBJ_FILES	:= $(SRC_FILES:$(SRC_DIR)/%.c=$(INT_DIR)/%.o)
 
 CC			:= cc
-CFLAGS		:= -Wall -Wextra -Werror -I $(INC_DIR) -fsanitize=address
+CFLAGS		:= -Wall -Wextra -Werror -I $(INC_DIR) 
+# -fsanitize=address
 
-all: distribution
+all: debug
 
 bonus:
 
