@@ -8,8 +8,9 @@ signed ints implementeren
 unsigned ints implementeren
 hex implementeren
 
--00000000000000000127
--000000000000000000127
+000000000004294967295
+num_len:8 prec_len:13 width_len:0
+00000000000004294967295
 
 checken met waardes van INT_MAX en INTMIN
 If both the converted value and the precision are ​0​ the conversion results in no characters. 
@@ -18,9 +19,8 @@ printf("%d\n", printf("%*d\n", INT_MAX, 45)); Moet deze behaviour geimplementeer
 */
 int main(void)
 {
-	// put_ihex_fd(1, -127);
-	// ft_printf("%x\n", -127);
-	printf("%#X\n", -127);
+	   printf("% 21u\n", UINT_MAX);
+	ft_printf("% 21u\n", UINT_MAX);
 }
 //-000000000000000000127
 //000000000000000127

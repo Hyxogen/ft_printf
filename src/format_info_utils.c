@@ -7,6 +7,7 @@ const static t_string_flag_pair	g_StringFlags[] = {
 		{"%", TYPE_SPECIFIER, 1},
 		{"d", TYPE_SINT, 1},
 		{"i", TYPE_SINT, 1},
+		{"u", TYPE_UINT, 1},
 		{"x", TYPE_LOHEX, 1},
 		{"X", TYPE_HIHEX, 1},
 		{0, 0,0}

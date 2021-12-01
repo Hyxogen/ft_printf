@@ -13,7 +13,8 @@ SRC_FILES	:= $(SRC_DIR)/ft_printf.c $(SRC_DIR)/format_info.c $(SRC_DIR)/ft_print
 				$(SRC_DIR)/format_info_utils.c $(SRC_DIR)/format/format_char.c $(SRC_DIR)/dispatcher.c \
 				$(SRC_DIR)/format/format_specifier.c $(SRC_DIR)/format/format_string.c $(SRC_DIR)/utils/putchr.c \
 				$(SRC_DIR)/utils/number_utils.c $(SRC_DIR)/utils/putstr.c $(SRC_DIR)/format/format_sint.c \
-				$(SRC_DIR)/format/format_hex.c $(SRC_DIR)/format/format_hex_utils.c
+				$(SRC_DIR)/format/format_hex.c $(SRC_DIR)/format/format_hex_utils.c $(SRC_DIR)/format/format_int_utils.c \
+				$(SRC_DIR)/format/format_uint.c
 OBJ_FILES	:= $(SRC_FILES:$(SRC_DIR)/%.c=$(INT_DIR)/%.o)
 
 CC			:= cc
