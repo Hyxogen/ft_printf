@@ -9,7 +9,7 @@ DEPEND		:= $(INC_DIR)/ft_printf.h
 
 VPATH		:= $(SRC_DIR) $(SRC_DIR)/format $(SRC_DIR)/utils
 
-SRC_FILES	:= $(SRC_DIR)/ft_printf.c $(SRC_DIR)/format_info.c $(SRC_DIR)/ft_printf_utils.c $(SRC_DIR)/debug_utils.c \
+SRC_FILES	:= $(SRC_DIR)/ft_printf.c $(SRC_DIR)/format_info.c $(SRC_DIR)/ft_printf_utils.c \
 				$(SRC_DIR)/format_info_utils.c $(SRC_DIR)/format/format_char.c $(SRC_DIR)/dispatcher.c \
 				$(SRC_DIR)/format/format_specifier.c $(SRC_DIR)/format/format_string.c $(SRC_DIR)/utils/putchr.c \
 				$(SRC_DIR)/utils/number_utils.c $(SRC_DIR)/utils/putstr.c $(SRC_DIR)/format/format_sint.c \
@@ -21,13 +21,9 @@ CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror -I $(INC_DIR) 
 # -fsanitize=address
 
-all: debug
+all: distribution
 
 bonus:
-
-test: debug
-	cc -fsanitize=address $(NAME) $(LIBFT_DIR)/libft.a src/main.c
-	./a.out
 
 $(NAME): $(NAME)($(notdir $(OBJ_FILES)))
 	make -C $(LIBFT_DIR)
