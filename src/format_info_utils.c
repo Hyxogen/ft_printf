@@ -10,6 +10,7 @@ const static t_string_flag_pair	g_StringFlags[] = {
 		{"u", TYPE_UINT, 1},
 		{"x", TYPE_LOHEX, 1},
 		{"X", TYPE_HIHEX, 1},
+		{"p", TYPE_POINTER, 1},
 		{0, 0,0}
 };
 

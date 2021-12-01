@@ -24,6 +24,18 @@ size_t
 	return (ret);
 }
 
+size_t
+	put_lhex_fd(int fd, unsigned long long number, const char *baseStr)
+{
+	size_t	ret;
+
+	ret = 0;
+	if (number / 16)
+		ret += put_lhex_fd(fd, number / 16, baseStr);
+	ret += put_chr_fd(fd, baseStr[number % 16]);
+	return (ret);
+}
+
 long
 	ablsolute_sint(int val)
 {

@@ -11,4 +11,5 @@ size_t	print_uint(int fd, t_format_info *formatInfo, va_list *current);
 size_t	print_char(int fd, t_format_info *formatInfo, va_list *current);
 size_t	print_uhex(int fd, t_format_info *formatInfo, va_list *current);
 size_t	print_lhex(int fd, t_format_info *formatInfo, va_list *current);
+size_t	print_pointer(int fd, t_format_info *formatInfo, va_list *current);
 #endif

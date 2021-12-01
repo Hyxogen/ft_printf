@@ -19,8 +19,8 @@ printf("%d\n", printf("%*d\n", INT_MAX, 45)); Moet deze behaviour geimplementeer
 */
 int main(void)
 {
-	   printf("% 21u\n", UINT_MAX);
-	ft_printf("% 21u\n", UINT_MAX);
+	   printf("%021p\n", (void*)UINT_MAX);
+	ft_printf("%021p\n", (void*)UINT_MAX);
 }
 //-000000000000000000127
 //000000000000000127

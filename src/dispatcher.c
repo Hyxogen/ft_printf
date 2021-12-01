@@ -10,6 +10,7 @@ const static t_dispatch_pair g_Pairs[] = {
 		{TYPE_UINT, &print_uint},
 		{TYPE_LOHEX, &print_lhex},
 		{TYPE_HIHEX, &print_uhex},
+		{TYPE_POINTER, &print_pointer},
 		{0, 0}
 };
 

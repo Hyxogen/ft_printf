@@ -2,10 +2,10 @@
 #include "../utils/utils.h"
 
 
-int get_number_str_length_int(long number);
-int get_preciscion_str_length_int(const t_format_info *formatInfo, long number);
-int get_width_str_length_int(const t_format_info *formatInfo, int precLen, long number);
-size_t print_padding_int(int zero, int width);
+int	get_number_str_length_int(long number);
+int	get_preciscion_str_length_int(const t_format_info *formatInfo, long number);
+int	get_width_str_length_int(const t_format_info *formatInfo, int precLen, long number);
+size_t	print_padding_int(int zero, int width);
 
 size_t
 	print_sint(int fd, t_format_info *formatInfo, va_list *current)
