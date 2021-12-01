@@ -39,7 +39,6 @@ int
 		if (!specifier)
 			break ;
 		tmp = put_strn_fd(fd, format, specifier - format);
-//		tmp = write_strn(stream, format, specifier - format);
 		format += tmp;
 		formatLen -= tmp;
 		ret += tmp;
@@ -49,7 +48,6 @@ int
 		tmp  = dispatch(fd, &formatInfo, args);
 		ret += tmp;
 	}
-//	ret += write_strn(stream, format, formatLen);
 	ret += put_strn_fd(fd, format, formatLen);
 	return (ret);
 }

@@ -72,7 +72,7 @@ size_t
 	ret += put_str_fd(1, "0x");
 	ret += print_padding_ptr(1, prec_len);
 	if (!((formatInfo->m_Precision == 0) && (number == 0)))
-		ret += put_lhex_fd(fd, number, "0123456789abcdef");
+		ret += put_number_base_unsigned(fd, number, "0123456789abcdef", 16);
 	if ((formatInfo->m_Flags & FLAG_MASK_MINUS) == FLAG_MASK_MINUS)
 		ret += print_padding_ptr(0, width_len);
 	return (ret);

@@ -31,7 +31,7 @@ size_t
 		ret += print_padding_int(1, width_len);
 	ret += print_padding_int(1, prec_len);
 	if (!((formatInfo->m_Precision == 0) && (number == 0)))
-		ret += put_sint_fd(fd, ablsolute_sint(number));
+		ret += put_number_base_signed(fd, ablsolute_sint(number), "0123456789", 10);
 	if ((formatInfo->m_Flags & FLAG_MASK_MINUS) == FLAG_MASK_MINUS)
 		ret += print_padding_int(0, width_len);
 	return (ret);
