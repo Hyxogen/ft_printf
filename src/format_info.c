@@ -3,6 +3,7 @@
 #include "libft.h"
 #include "format_info_utils.h"
 #include "ft_printf.h"
+#include <limits.h>
 
 int
 	get_flags(const char *format, t_format_info *formatInfo)
@@ -113,5 +114,7 @@ int
 	ret += get_width(format + ret, formatInfo, argList);
 	ret += get_preciscion(format + ret, formatInfo, argList);
 	ret += get_size_type(format + ret, formatInfo);
+	if (formatInfo->m_Precision != -1)
+		formatInfo->m_Flags &= ~FLAG_MASK_ZERO;
 	return (ret);
 }

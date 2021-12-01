@@ -4,11 +4,41 @@
 
 static int get_number_str_length(long number)
 {
+	int	num_len;
+
+	num_len = 1;
 	if (number < 0)
-		return (get_number_str_length((-1 * number) / 10) + 2);
-	if (number / 10)
-		return (get_number_str_length(number / 10) + 1);
-	return (1);
+		num_len = 2;
+	while (number / 10)
+	{
+		num_len++;
+		number /= 10;
+	}
+	return (num_len);
+}
+
+static int get_preciscion_str_length(const t_format_info *formatInfo, long number) {
+	int	num_len;
+
+	num_len = get_number_str_length(number);
+	if (number < 0)
+		num_len--;
+	if (formatInfo->m_Precision > num_len)
+		return (formatInfo->m_Precision - num_len);
+	return (0);
+}
+
+static int get_width_str_length(const t_format_info *formatInfo, int precLen, long number) {
+	int	total_len;
+
+	total_len = get_number_str_length(number) + precLen;
+	if ((formatInfo->m_Precision == 0) && !(number))
+		total_len--;
+	if ((number >= 0) && (formatInfo->m_Flags & (FLAG_MASK_BLANK | FLAG_MASK_PLUS)))
+		total_len++;
+	if (formatInfo->m_Width > total_len)
+		return (formatInfo->m_Width - total_len);
+	return (0);
 }
 
 static size_t print_padding(int zero, int width)
@@ -28,28 +58,32 @@ static size_t print_padding(int zero, int width)
 	return (ret);
 }
 
-size_t	print_sint(int fd, t_format_info *formatInfo, va_list *current)
+size_t
+	print_sint(int fd, t_format_info *formatInfo, va_list *current)
 {
 	size_t	ret;
 	long	number;
 	int		num_len;
+	int		prec_len;
+	int		width_len;
 
 	number = va_arg(*current, int);
 	num_len = get_number_str_length(number);
+	prec_len = get_preciscion_str_length(formatInfo, number);
+	width_len = get_width_str_length(formatInfo, prec_len, number);
 	ret = 0;
-	if (formatInfo->m_Precision > 0) {
-		if (number < 0)
-		{
-			ret += put_chr_fd(1, '-');
-			number *= - 1;
-			num_len -= 1;
-		}
-		if (formatInfo->m_Precision > num_len)
-			formatInfo->m_Precision -= num_len;
-		ret += print_padding(1, formatInfo->m_Precision);
-	}
-	// if ((formatInfo->m_Flags & FLAG_MASK_MINUS) != FLAG_MASK_MINUS)
-	// 	print_padding((formatInfo->m_Flags & FLAG_MASK_MINUS) == FLAG_MASK_MINUS, formatInfo->m_Width, num_len);
-	ret += put_sintn_fd(fd, number, 20);
+	if (!(formatInfo->m_Flags & FLAG_MASK_MINUS) && !(formatInfo->m_Flags & FLAG_MASK_ZERO))
+		ret += print_padding(0, width_len);
+	if (number < 0)
+		ret += put_chr_fd(1, '-');
+	else if (formatInfo->m_Flags & (FLAG_MASK_PLUS | FLAG_MASK_BLANK))
+		ret += put_chr_fd(1, '+' - (11 * !!(formatInfo->m_Flags & FLAG_MASK_BLANK)));
+	if (!(formatInfo->m_Flags & FLAG_MASK_MINUS) && (formatInfo->m_Flags & FLAG_MASK_ZERO))
+		ret += print_padding(1, width_len);
+	ret += print_padding(1, prec_len);
+	if (!((formatInfo->m_Precision == 0) && (number == 0)))
+		ret += put_sint_fd(fd, ablsolute_sint(number));
+	if ((formatInfo->m_Flags & FLAG_MASK_MINUS) == FLAG_MASK_MINUS)
+		ret += print_padding(0, width_len);
 	return (ret);
 }

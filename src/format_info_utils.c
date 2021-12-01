@@ -2,11 +2,13 @@
 #include "libft.h"
 
 const static t_string_flag_pair	g_StringFlags[] = {
-		{"c", TYPE_CHAR,      1},
-		{"s", TYPE_STRING,    1},
+		{"c", TYPE_CHAR, 1},
+		{"s", TYPE_STRING, 1},
 		{"%", TYPE_SPECIFIER, 1},
 		{"d", TYPE_SINT, 1},
 		{"i", TYPE_SINT, 1},
+		{"x", TYPE_LOHEX, 1},
+		{"X", TYPE_HIHEX, 1},
 		{0, 0,0}
 };
 
