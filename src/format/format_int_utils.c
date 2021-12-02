@@ -18,31 +18,31 @@ int
 }
 
 int
-	get_preciscion_str_length_int(const t_format_info *formatInfo,
+	get_preciscion_str_length_int(const t_format_info *fInf,
 	long number) {
 	int	num_len;
 
 	num_len = get_number_str_length_int(number);
 	if (number < 0)
 		num_len--;
-	if (formatInfo->m_Precision > num_len)
-		return (formatInfo->m_Precision - num_len);
+	if (fInf->m_Precision > num_len)
+		return (fInf->m_Precision - num_len);
 	return (0);
 }
 
 int
-	get_width_str_length_int(const t_format_info *formatInfo, int precLen,
+	get_width_str_length_int(const t_format_info *fInf, int precLen,
 	long number)
 {
 	int	total_len;
 
 	total_len = get_number_str_length_int(number) + precLen;
-	if ((formatInfo->m_Precision == 0) && !(number))
+	if ((fInf->m_Precision == 0) && !(number))
 		total_len--;
-	if ((number >= 0) && (formatInfo->m_Flags & (FLAG_MASK_BLANK | FLAG_MASK_PLUS)))
+	if ((number >= 0) && (fInf->m_Flags & (FLAG_MASK_BLANK | FLAG_MASK_PLUS)))
 		total_len++;
-	if (formatInfo->m_Width > total_len)
-		return (formatInfo->m_Width - total_len);
+	if (fInf->m_Width > total_len)
+		return (fInf->m_Width - total_len);
 	return (0);
 }
 
