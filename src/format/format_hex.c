@@ -30,7 +30,7 @@ size_t
 		ret += put_str_fd(1, "0X");
 	ret += print_padding_hex(1, prec_len);
 	if (!((fInf->m_Precision == 0) && (number == 0)))
-		ret += put_number_base_unsigned(fd, number, "0123456789ABCDEF", 16);
+		ret += put_number_base_unsigned(fd, number, BUHEX, 16);
 	if ((fInf->m_Flags & FLAG_MASK_MINUS) == FLAG_MASK_MINUS)
 		ret += print_padding_hex(0, width_len);
 	return (ret);
@@ -58,7 +58,7 @@ size_t
 		ret += put_str_fd(1, "0x");
 	ret += print_padding_hex(1, prec_len);
 	if (!((fInf->m_Precision == 0) && (number == 0)))
-		ret += put_number_base_unsigned(fd, number, "0123456789abcdef", 16);
+		ret += put_number_base_unsigned(fd, number, BLHEX, 16);
 	if ((fInf->m_Flags & FLAG_MASK_MINUS) == FLAG_MASK_MINUS)
 		ret += print_padding_hex(0, width_len);
 	return (ret);
