@@ -55,7 +55,8 @@ int
 }
 
 int
-	get_preciscion(const char *format, t_format_info *formatInfo, va_list *argList)
+	get_preciscion(const char *format,
+		t_format_info *formatInfo, va_list *argList)
 {
 	int	ret;
 
@@ -64,7 +65,8 @@ int
 		return (0);
 	ret = 1;
 	format++;
-	if (*format == '*'){
+	if (*format == '*')
+	{
 		formatInfo->m_VariablePrecision = TRUE;
 		formatInfo->m_Precision = va_arg(*argList, int);
 		return (ret + 1);
@@ -82,7 +84,7 @@ int
 	get_size_type(const char *format, t_format_info *formatInfo)
 {
 	const t_string_flag_pair	*pair;
-	int	ret;
+	int							ret;
 
 	(void)formatInfo;
 	ret = 0;
@@ -104,9 +106,10 @@ int
 
 /*TODO check if multiple of the same flags are equal it still works*/
 int
-	get_format_info(const char *format, t_format_info *formatInfo, va_list *argList)
+	get_format_info(const char *format,
+		t_format_info *formatInfo, va_list *argList)
 {
-	int ret;
+	int	ret;
 
 	ret = 0;
 	ft_memset(formatInfo, 0, sizeof(t_format_info));
