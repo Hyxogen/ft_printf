@@ -71,6 +71,8 @@ int
 	}
 	else if (ft_isdigit(*format))
 		formatInfo->m_Precision = ft_atoi(format);
+	else if (get_string_flag(format))
+		formatInfo->m_Precision = 0;
 	while (ft_isdigit(*format))
 	{
 		format++;

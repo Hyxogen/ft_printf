@@ -25,6 +25,10 @@ all: distribution
 
 bonus:
 
+test: debug
+	$(CC) src/main.c $(NAME)
+	./a.out
+
 $(NAME): $(NAME)($(notdir $(OBJ_FILES)))
 	make -C $(LIBFT_DIR)
 	ar rcs $(NAME) $(LIBFT_DIR)/*.o
