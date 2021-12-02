@@ -17,4 +17,5 @@ size_t	put_number_base_unsigned(int fd, unsigned long long number,
 size_t	put_number_base_signed(int fd, long long number,
 			const char *baseStr, int base);
 long	ablsolute_sint(int val);
+size_t	print_padding(int fd, int ch, int times);
 #endif

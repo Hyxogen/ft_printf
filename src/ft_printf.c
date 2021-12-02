@@ -36,6 +36,11 @@ int
 	return (ret);
 }
 
+/*
+Alle test fails fixen
+Weer normizeren
+Makefile goed opzetten
+*/
 int
 	ft_printf(const char *format, ...)
 {

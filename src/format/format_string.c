@@ -4,32 +4,13 @@
 #include "../utils/utils.h"
 
 #define NULL_STRING "(null)"
-#define NULL_STRING_LEN 6
 
 static size_t
-	print_null_string(int fd, t_format_info *fInf) {
-	size_t	ret;
-
-	ret = 0;
-	while (fInf->m_Width > NULL_STRING_LEN)
-	{
-		ret += put_chr_fd(fd, ' ');
-		fInf->m_Width -= 1;
-	}
-	ret += put_strn_fd(fd, NULL_STRING, fInf->m_Precision);
-	return (ret);
-}
-
-size_t
-	print_string(int fd, t_format_info *fInf, va_list *current)
+	print_string_internal(int fd, t_format_info *fInf, const char *string)
 {
-	char	*string;
 	size_t	str_len;
 	size_t	ret;
 
-	string = va_arg(*current, char *);
-	if (string == 0)
-		return (print_null_string(fd, fInf));
 	str_len = ft_strlen(string);
 	ret = 0;
 	if ((fInf->m_Precision >= 0) && ((size_t) fInf->m_Precision < str_len))
@@ -48,4 +29,15 @@ size_t
 		fInf->m_Width -= 1;
 	}
 	return (ret);
+}
+
+size_t
+	print_string(int fd, t_format_info *fInf, va_list *current)
+{
+	char	*string;
+
+	string = va_arg(*current, char *);
+	if (string == 0)
+		return (print_string_internal(fd, fInf, NULL_STRING));
+	return (print_string_internal(fd, fInf, string));
 }
