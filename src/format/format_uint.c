@@ -24,8 +24,6 @@ size_t
 	ret = 0;
 	if (!(formatInfo->m_Flags & FLAG_MASK_MINUS))
 		ret += print_padding_int(formatInfo->m_Flags & FLAG_MASK_ZERO, width_len);
-	// if (!(formatInfo->m_Flags & (FLAG_MINUS)) && (formatInfo->m_Flags & FLAG_MASK_ZERO))
-	// 	ret += print_padding_int(1, width_len);
 	ret += print_padding_int(1, prec_len);
 	if (!((formatInfo->m_Precision == 0) && (number == 0)))
 		ret += put_number_base_unsigned(fd, number, "0123456789", 10);
