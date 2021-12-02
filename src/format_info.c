@@ -69,7 +69,8 @@ int
 		formatInfo->m_Precision = va_arg(*argList, int);
 		return (ret + 1);
 	}
-	formatInfo->m_Precision = ft_atoi(format);
+	else if (ft_isdigit(*format))
+		formatInfo->m_Precision = ft_atoi(format);
 	while (ft_isdigit(*format))
 	{
 		format++;
