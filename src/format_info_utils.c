@@ -1,5 +1,5 @@
 #include "format_info_utils.h"
-#include "libft.h"
+#include "utils/utils.h"
 
 const static t_string_flag_pair	g_StringFlags[] = {
 		{"c", TYPE_CHAR, 1},

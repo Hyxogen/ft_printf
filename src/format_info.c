@@ -1,7 +1,7 @@
 #include "format_info.h"
-#include "libft.h"
 #include "format_info_utils.h"
 #include "ft_printf.h"
+#include "utils/utils.h"
 
 int
 	get_flags(const char *format, t_format_info *formatInfo)
@@ -30,7 +30,6 @@ int
 	ret = 0;
 	if (*format == '0')
 	{
-		formatInfo->m_FillZeroes = TRUE;
 		format++;
 		ret++;
 	}
@@ -40,7 +39,6 @@ int
 		formatInfo->m_Width = -1;
 	else
 	{
-		formatInfo->m_VariableWidth = TRUE;
 		formatInfo->m_Width = va_arg(*argList, int);
 		return (ret + 1);
 	}
@@ -65,7 +63,6 @@ int
 	format++;
 	if (*format == '*')
 	{
-		formatInfo->m_VariablePrecision = TRUE;
 		formatInfo->m_Precision = va_arg(*argList, int);
 		return (ret + 1);
 	}

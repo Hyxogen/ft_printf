@@ -1,7 +1,5 @@
 #include "../include/ft_printf.h"
-#include <stdio.h>
 #include <stdarg.h>
-#include "libft.h"
 #include "format_info.h"
 #include "dispatcher.h"
 #include "utils/utils.h"
@@ -36,11 +34,6 @@ int
 	return (ret);
 }
 
-/*
-Alle test fails fixen
-Weer normizeren
-Makefile goed opzetten
-*/
 int
 	ft_printf(const char *format, ...)
 {

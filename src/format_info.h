@@ -1,6 +1,5 @@
 #ifndef FORMAT_INFO_H
 # define FORMAT_INFO_H
-# include "../include/boolean.h"
 # include <wchar.h>
 
 # define FLAG_MASK_MINUS 0b000001
@@ -46,10 +45,7 @@
 
 typedef struct s_format_info {
 	unsigned char	m_Flags;
-	t_bool			m_FillZeroes;
-	t_bool			m_VariableWidth;
 	int				m_Width;
-	t_bool			m_VariablePrecision;
 	int				m_Precision;
 	char			m_Size;
 	int				m_Type;

@@ -1,5 +1,5 @@
 #include <unistd.h>
-#include "../../Dependencies/Libft/libft.h"
+#include "utils.h"
 
 size_t
 	put_str_fd(int fd, const char *str)

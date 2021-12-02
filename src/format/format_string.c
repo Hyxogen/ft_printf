@@ -1,5 +1,4 @@
 #include <stdarg.h>
-#include "../../Dependencies/Libft/libft.h"
 #include "formats.h"
 #include "../utils/utils.h"
 
