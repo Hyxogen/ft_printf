@@ -1,7 +1,8 @@
 #include "../format_info.h"
 #include "../utils/utils.h"
 
-int get_number_str_length_hex(unsigned int number)
+int
+	get_number_str_length_hex(unsigned int number)
 {
 	int	num_len;
 
@@ -14,7 +15,8 @@ int get_number_str_length_hex(unsigned int number)
 	return (num_len);
 }
 
-int get_preciscion_str_length_hex(const t_format_info *formatInfo, unsigned int number) {
+int
+	get_preciscion_str_length_hex(const t_format_info *formatInfo, unsigned int number) {
 	int	num_len;
 
 	num_len = get_number_str_length_hex(number);
@@ -23,7 +25,8 @@ int get_preciscion_str_length_hex(const t_format_info *formatInfo, unsigned int 
 	return (0);
 }
 
-int get_width_str_length_hex(const t_format_info *formatInfo, int precLen, unsigned int number) {
+int
+	get_width_str_length_hex(const t_format_info *formatInfo, int precLen, unsigned int number) {
 	int	total_len;
 
 	total_len = get_number_str_length_hex(number) + precLen;
@@ -36,7 +39,8 @@ int get_width_str_length_hex(const t_format_info *formatInfo, int precLen, unsig
 	return (0);
 }
 
-size_t print_padding_hex(int zero, int width)
+size_t
+	print_padding_hex(int zero, int width)
 {
 	size_t	ret;
 	char	filler;

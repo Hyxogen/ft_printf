@@ -28,8 +28,8 @@ int
 	char			*specifier;
 	size_t			formatLen;
 	t_format_info	formatInfo;
-	int 			ret;
-	int 			tmp;
+	int				ret;
+	int				tmp;
 
 	formatLen = ft_strlen(format);
 	ret = 0;
@@ -45,7 +45,7 @@ int
 		tmp = get_format_info(specifier + 1, &formatInfo, args);
 		format += tmp;
 		formatLen -= tmp;
-		tmp  = dispatch(fd, &formatInfo, args);
+		tmp = dispatch(fd, &formatInfo, args);
 		ret += tmp;
 	}
 	ret += put_strn_fd(fd, format, formatLen);
