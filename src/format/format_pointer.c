@@ -1,7 +1,8 @@
 #include "../format_info.h"
 #include "../utils/utils.h"
 
-int get_number_str_length_ptr(unsigned long long number)
+int
+	get_number_str_length_ptr(unsigned long long number)
 {
 	int	num_len;
 
@@ -14,7 +15,9 @@ int get_number_str_length_ptr(unsigned long long number)
 	return (num_len);
 }
 
-int get_preciscion_str_length_ptr(const t_format_info *formatInfo, unsigned long long number) {
+int
+	get_preciscion_str_length_ptr(const t_format_info *formatInfo,
+	unsigned long long number) {
 	int	num_len;
 
 	num_len = get_number_str_length_ptr(number);
@@ -23,7 +26,9 @@ int get_preciscion_str_length_ptr(const t_format_info *formatInfo, unsigned long
 	return (0);
 }
 
-int get_width_str_length_ptr(const t_format_info *formatInfo, int precLen, unsigned long long number) {
+int
+	get_width_str_length_ptr(const t_format_info *formatInfo, int precLen,
+	unsigned long long number) {
 	int	total_len;
 
 	total_len = get_number_str_length_ptr(number) + precLen;
@@ -35,7 +40,8 @@ int get_width_str_length_ptr(const t_format_info *formatInfo, int precLen, unsig
 	return (0);
 }
 
-size_t print_padding_ptr(int zero, int width)
+size_t
+	print_padding_ptr(int zero, int width)
 {
 	size_t	ret;
 	char	filler;
@@ -51,6 +57,7 @@ size_t print_padding_ptr(int zero, int width)
 	}
 	return (ret);
 }
+
 size_t
 	print_pointer(int fd, t_format_info *formatInfo, va_list *current)
 {

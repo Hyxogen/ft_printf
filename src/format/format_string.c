@@ -6,7 +6,8 @@
 #define NULL_STRING "(null)"
 #define NULL_STRING_LEN 6
 
-static size_t print_null_string(int fd, t_format_info *formatInfo) {
+static size_t
+	print_null_string(int fd, t_format_info *formatInfo) {
 	size_t	ret;
 
 	ret = 0;
@@ -19,7 +20,8 @@ static size_t print_null_string(int fd, t_format_info *formatInfo) {
 	return (ret);
 }
 
-size_t	print_string(int fd, t_format_info *formatInfo, va_list *current)
+size_t
+	print_string(int fd, t_format_info *formatInfo, va_list *current)
 {
 	char	*string;
 	size_t	str_len;

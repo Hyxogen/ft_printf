@@ -1,7 +1,8 @@
 #include "../format_info.h"
 #include "../utils/utils.h"
 
-int get_number_str_length_int(long number)
+int
+	get_number_str_length_int(long number)
 {
 	int	num_len;
 
@@ -16,7 +17,9 @@ int get_number_str_length_int(long number)
 	return (num_len);
 }
 
-int get_preciscion_str_length_int(const t_format_info *formatInfo, long number) {
+int
+	get_preciscion_str_length_int(const t_format_info *formatInfo,
+	long number) {
 	int	num_len;
 
 	num_len = get_number_str_length_int(number);
@@ -27,7 +30,10 @@ int get_preciscion_str_length_int(const t_format_info *formatInfo, long number) 
 	return (0);
 }
 
-int get_width_str_length_int(const t_format_info *formatInfo, int precLen, long number) {
+int
+	get_width_str_length_int(const t_format_info *formatInfo, int precLen,
+	long number)
+{
 	int	total_len;
 
 	total_len = get_number_str_length_int(number) + precLen;
@@ -40,7 +46,8 @@ int get_width_str_length_int(const t_format_info *formatInfo, int precLen, long 
 	return (0);
 }
 
-size_t print_padding_int(int zero, int width)
+size_t
+	print_padding_int(int zero, int width)
 {
 	size_t	ret;
 	char	filler;

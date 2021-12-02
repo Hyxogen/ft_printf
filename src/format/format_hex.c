@@ -1,9 +1,11 @@
 #include "formats.h"
 #include "../utils/utils.h"
 
-int	get_number_str_length_hex(unsigned int number);
-int	get_preciscion_str_length_hex(const t_format_info *formatInfo, unsigned int number);
-int	get_width_str_length_hex(const t_format_info *formatInfo, int precLen, unsigned int number);
+int		get_number_str_length_hex(unsigned int number);
+int		get_preciscion_str_length_hex(const t_format_info *formatInfo,
+			unsigned int number);
+int		get_width_str_length_hex(const t_format_info *formatInfo, int precLen,
+			unsigned int number);
 size_t	print_padding_hex(int zero, int width);
 
 size_t

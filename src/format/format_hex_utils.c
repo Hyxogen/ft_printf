@@ -16,7 +16,8 @@ int
 }
 
 int
-	get_preciscion_str_length_hex(const t_format_info *formatInfo, unsigned int number) {
+	get_preciscion_str_length_hex(const t_format_info *formatInfo,
+		unsigned int number) {
 	int	num_len;
 
 	num_len = get_number_str_length_hex(number);
@@ -26,7 +27,8 @@ int
 }
 
 int
-	get_width_str_length_hex(const t_format_info *formatInfo, int precLen, unsigned int number) {
+	get_width_str_length_hex(const t_format_info *formatInfo, int precLen,
+		unsigned int number) {
 	int	total_len;
 
 	total_len = get_number_str_length_hex(number) + precLen;
