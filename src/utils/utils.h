@@ -12,9 +12,5 @@ size_t	put_number_base_unsigned(int fd, unsigned long long number,
 			const char *baseStr, int base);
 size_t	put_number_base_signed(int fd, long long number,
 			const char *baseStr, int base);
-//TODO betere naam voor dit (lijkt op lowcase hex)
 long	ablsolute_sint(int val);
-unsigned long long
-		flag_on(unsigned long long v, unsigned long long flag);
-
 #endif
