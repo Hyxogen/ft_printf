@@ -2,7 +2,7 @@
 
 #include "format/formats.h"
 
-const static t_dispatch_pair g_Pairs[] = {
+const static t_dispatch_pair	g_Pairs[] = {
 		{TYPE_CHAR, &print_char},
 		{TYPE_SPECIFIER, &print_specifier},
 		{TYPE_STRING, &print_string},
@@ -23,7 +23,7 @@ const t_dispatch_pair
 	while (g_Pairs[index].m_Function)
 	{
 		if ((g_Pairs[index].m_Flags & flags) == flags)
-			return &g_Pairs[index];
+			return (&g_Pairs[index]);
 		index++;
 	}
 	return (NULL);
@@ -38,7 +38,7 @@ uint32_t
 size_t
 	dispatch(int fd, t_format_info *formatInfo, va_list *current)
 {
-	const t_dispatch_pair *pair;
+	const t_dispatch_pair	*pair;
 
 	pair = get_pair(get_mask(formatInfo));
 	if (!pair)
