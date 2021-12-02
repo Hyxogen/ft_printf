@@ -6,22 +6,6 @@
 #include "dispatcher.h"
 #include "utils/utils.h"
 
-/*
- * Altijd size precision etc. doorsturen?
- * Werkt dat voor precision?
- *
- * Eerst converten met type en dan aanpassen met de flags?
- * -Werkt niet even goed voor float (wel mogelijk)
- * -Werkt niet voor niet nul terminated strings
- */
-
-/**
- * This functions trusts that the string is at least size of n
- * @param stream
- * @param string
- * @return
- */
-
 int
 	ft_vprintf(int fd, const char *format, va_list *args)
 {
@@ -52,7 +36,6 @@ int
 	return (ret);
 }
 
-/*TODO create internal stream writing system*/
 int
 	ft_printf(const char *format, ...)
 {

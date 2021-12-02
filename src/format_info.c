@@ -1,9 +1,7 @@
 #include "format_info.h"
-#include <stdio.h>
 #include "libft.h"
 #include "format_info_utils.h"
 #include "ft_printf.h"
-#include <limits.h>
 
 int
 	get_flags(const char *format, t_format_info *formatInfo)
@@ -104,7 +102,6 @@ int
 	return (ret);
 }
 
-/*TODO check if multiple of the same flags are equal it still works*/
 int
 	get_format_info(const char *format,
 		t_format_info *formatInfo, va_list *argList)
